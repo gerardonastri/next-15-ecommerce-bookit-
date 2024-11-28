@@ -13,7 +13,7 @@ const verificaPassword = async (passwordInserita: string, hashedPassword: string
   return isMatch;
 };
 
-export const getUserByEmail = async (email: string) => {
+const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
 
   const result = await databases.listDocuments(
