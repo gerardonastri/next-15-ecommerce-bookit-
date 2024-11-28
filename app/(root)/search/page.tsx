@@ -8,7 +8,6 @@ const Search = async ({
     searchParams: Promise<{ query?: string }>;
   }) => {
     const query = (await searchParams).query;
-    const params = { search: query || null };
 
     const {documents: products} = await searchProduct(query)
     

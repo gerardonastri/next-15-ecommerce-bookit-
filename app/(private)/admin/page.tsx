@@ -19,7 +19,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import {
   BookOpen,
   Users,
@@ -41,6 +40,7 @@ import {
 } from "recharts";
 import Link from "next/link";
 import { getProducts } from "@/lib/actions/product.action";
+import { Product } from "@/store";
 
 
 
@@ -224,7 +224,7 @@ function DashboardContent() {
 
 function ProductsContent() {
 
-  const [products, setProducts] = useState(null)
+  const [products, setProducts] = useState<Document[] | null | unknown>(null)
 
   useEffect(() => {
     const getData = async () => {
@@ -263,7 +263,7 @@ function ProductsContent() {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {products?.map((product: any, i: number) => (
+          {products?.map((product: Product, i: number) => (
             <TableRow key={i}>
               <TableCell>{product.title}</TableCell>
               <TableCell>{product.type}</TableCell>

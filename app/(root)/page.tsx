@@ -6,7 +6,6 @@ import ProductCard from "@/components/ProductCard";
 import Categories from "@/components/Categories";
 import Testimonials from "@/components/Testimonials";
 import Newsletter from "@/components/Newsletter";
-import { getServerSession } from "next-auth";
 import { getFeaturedProducts } from "@/lib/actions/product.action";
 
 const Home = async () => {

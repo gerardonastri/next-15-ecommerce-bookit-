@@ -3,7 +3,7 @@ import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 
 
-import { ID, Query } from "node-appwrite";
+import { Query } from "node-appwrite";
 import { createAdminClient } from '@/lib/appwrite';
 import { appwriteConfig } from '@/lib/appwrite/config';
 import bcrypt from 'bcrypt';
@@ -13,7 +13,7 @@ const verificaPassword = async (passwordInserita: string, hashedPassword: string
   return isMatch;
 };
 
-const getUserByEmail = async (email: string) => {
+export const getUserByEmail = async (email: string) => {
   const { databases } = await createAdminClient();
 
   const result = await databases.listDocuments(
@@ -64,7 +64,7 @@ const handler = NextAuth({
       }
       return token
     },
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       // Send properties to the client, like an access_token from a provider.
       session.accessToken = token.accessToken
       return session
