@@ -11,6 +11,7 @@ import {
 import Image from "next/image";
 import { Button } from "./ui/button";
 import Link from "next/link";
+import AddToCart from "./AddToCart";
 
 interface Props{
     title: string;
@@ -53,7 +54,7 @@ const ProductCard = ({item}: {item: Props}) => {
         </div>
       </CardContent>
       <CardFooter>
-        <Button className="w-full">Add to Cart</Button>
+        <AddToCart product={[item]} className="w-full">Add to Cart</AddToCart>
       </CardFooter>
     </Card>
   );

@@ -130,3 +130,22 @@ export const getProductsById = async (id: string) => {
     
   }
 }
+
+//search
+export const searchProduct = async (search: string) => {
+  const { databases } = await createAdminClient();
+  
+
+  try {
+    const products = await databases.listDocuments(
+      appwriteConfig.databaseId,
+      appwriteConfig.productColletionId,
+      [Query.search("title", search)]
+    );
+
+    return products
+  } catch (error) {
+    console.log(error);
+    
+  }
+}

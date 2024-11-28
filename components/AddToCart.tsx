@@ -7,7 +7,7 @@ import { Product } from "@/store";
 
 
 
-const AddToCart = ({product}: {product: Product}) => {
+const AddToCart = ({product, className}: {product: Product, className?: string}) => {
   const { cart, addProduct } = useCartStore();
   console.log(cart);
   
@@ -18,7 +18,7 @@ const AddToCart = ({product}: {product: Product}) => {
   };
 
   return (
-    <Button size="lg" className="w-full md:w-auto" onClick={handleAddToCart}>
+    <Button size="lg" className={`w-full md:w-auto ${className}`} onClick={handleAddToCart}>
       Add to Cart
     </Button>
   );
